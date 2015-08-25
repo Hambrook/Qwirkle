@@ -33,6 +33,7 @@ class QwirkleServer extends \Server\Apps\BaseProjectServer {
         $this->tiles = $tiles;
     }
 
+    // W ask the hard questions
     private function validateTiles($tiles=[]) {
         return true;
     }
@@ -46,7 +47,7 @@ class QwirkleServer extends \Server\Apps\BaseProjectServer {
             return false;
         };
 
-        $client->mode = \Nested::get($client->getQueryParams(), "mode", "player"); // player/viewer
+        $client->mode = \Nested::get($client->getQueryParams(), "mode", "user"); // user/viewer
 
         (new \SocketResponse($client, "Chat.Say"))
             ->name("System")
